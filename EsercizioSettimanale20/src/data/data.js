@@ -1,0 +1,1 @@
+export const url = 'https://newsroom.spotify.com/wp-json/wp/v2/';

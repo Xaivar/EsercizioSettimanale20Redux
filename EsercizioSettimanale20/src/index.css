@@ -1,0 +1,15 @@
+.cards:hover {
+    background-color: black;
+    color: white;
+}
+
+.search::placeholder {
+    color: whitesmoke;
+}
+
+.search {
+    border: 0px;
+}
+.search:focus {
+    box-shadow: #137C3E 0 0 0 0.25rem;
+}
