@@ -15,9 +15,9 @@ function MyNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/" className='text-white fs-3 testo-nav ms-5'>Home</Nav.Link>
-            <Nav.Link href="/" className='text-white fs-3 testo-nav ms-5'>About</Nav.Link>
             <Nav.Link href="/" className='text-white fs-3 testo-nav ms-5'>Search</Nav.Link>
+            <Nav.Link href="/aboutpage" className='text-white fs-3 testo-nav ms-5'>About</Nav.Link>
+            <Nav.Link href="/users" className='text-white fs-3 testo-nav ms-5'>Users</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Form inline>

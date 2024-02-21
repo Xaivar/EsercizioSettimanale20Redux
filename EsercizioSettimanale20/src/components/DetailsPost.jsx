@@ -1,23 +1,39 @@
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { url } from "../data/data.js";
+import { Card, Container } from 'react-bootstrap';
 
-import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { url } from "../data/data";
 
 export default function DetailsPost() {
+  const [detail, setDetail] = useState([]);
+  const { id } = useParams();
+  console.log(detail)
 
-    const { id } = useParams();
-    const [detail, setDetail] = useState([]);
-    console.log(id)
-    
-   useEffect(() => {
-       fetch(url + `details/${id}`)
-       .then((response) => response.json())
-       .then((data) => console.log(data))
-   }, [])
+  useEffect(() => {
+    fetch(url + `posts/${id}?_embed`)
+      .then((response) => response.json())
+      .then((data) => setDetail(data));
+  }, [id])
 
-    return (
-        
-        <div>DetailsPost</div>
-        
+
+  return (
+    <Container>
+ 
+ 
+      {detail.title &&
+        <Card>
+          <Card.Body>
+          <Card.Img variant="top" src={detail._embedded["wp:featuredmedia"][0].source_url} />
+            <Card.Title> {detail.title.rendered} </Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">{detail.date}</Card.Subtitle>
+            <Card.Text>
+              <span dangerouslySetInnerHTML={{ __html: detail.content.rendered }} />
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      }
+
+    </Container >
+
     )
 }

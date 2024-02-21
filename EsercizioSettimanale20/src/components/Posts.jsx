@@ -62,7 +62,9 @@ export default function Posts() {
             >
               <Card.Img variant="top" src={post._embedded['wp:featuredmedia']['0'].source_url} />
               <Card.Body>
-                <Card.Title className="text-success">{post.title.rendered}</Card.Title>
+                <Card.Title className="text-success"><span
+                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                  /></Card.Title>
                 <Card.Text>
                   <span
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
